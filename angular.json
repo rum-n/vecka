@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "vecka"
+    }
+  },
+  "defaultProject": "vecka",
+  "cli": {
+    "analytics": "8fa7cce9-6ca9-4a3c-a61f-a073c4c994d4"
+  }
 }

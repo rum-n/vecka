@@ -1,0 +1,16 @@
+@import './../../assets/scss/variables';
+
+.day-wrapper {
+    width: 15rem;
+}
+
+.day-name {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 3px solid $darkPurple;
+}
+
+h2 {
+    margin: 0.5rem 0;
+}
