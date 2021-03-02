@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DatePipe } from '@angular/common';
 import { WeekdaysComponent } from './weekdays/weekdays.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WeekdaysComponent
+    WeekdaysComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,

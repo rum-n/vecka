@@ -3,6 +3,8 @@
     <h1 class='current-month'>{{currentMonth | date:'MMMM, y'}}</h1>
   </div>
   <div class='week-wrapper'>
-    <app-weekdays></app-weekdays>
+    <!-- <app-weekdays></app-weekdays> -->
+    <app-calendar (selected)="selected = $event"></app-calendar>
+    <p>{{selected | date}}</p>
   </div>
 </div>

@@ -9,6 +9,7 @@ export class WeekdaysComponent implements OnInit {
   currentTime = new Date();
   newDay = new Date(this.currentTime);
   tomorrow = this.newDay.setDate(this.newDay.getDate() + 1)
+  selected: Date;
 
   days = [
     this.currentTime,
@@ -18,7 +19,7 @@ export class WeekdaysComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    // this.tomorrow.setDate(this.tomorrow.getDate() + 1)
+    
   }
 
 }

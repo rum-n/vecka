@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -10,10 +9,10 @@ import { DatePipe } from '@angular/common';
 export class AppComponent implements OnInit {
   title = 'vecka';
   currentMonth = Date.now();
+  selected: Date;
 
   constructor(
-    public router: Router,
-    private datePipe: DatePipe
+    public router: Router
   ) { }
 
   ngOnInit() {
