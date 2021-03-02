@@ -1,13 +1,20 @@
+@import './../../assets/scss/variables';
+
 ul { 
     margin: 0; 
     padding: 0; 
     list-style: none;
 }
 
+.highlight {
+    background: $lightGreen;
+}
+
 li {
   display: inline-block; 
-  border: 1px solid #ccc;
+  border: 1px solid rgb(102, 102, 102);
   width: calc(100%/7 - 2px);
+  height: 4rem;
   text-align: center;
   cursor: pointer;
 }
@@ -17,9 +24,13 @@ li.days {
 }
 
 li.grey {
-    color: #ccc
+    color: rgb(124, 124, 124)
 }
 
 li:hover {
-    background-color: #ccc;
+    background-color: $lightPurple;
+}
+
+.month-label {
+    margin-bottom: 1rem;
 }

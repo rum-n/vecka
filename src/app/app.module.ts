@@ -6,19 +6,26 @@ import { AppComponent } from './app.component';
 import { DatePipe } from '@angular/common';
 import { WeekdaysComponent } from './weekdays/weekdays.component';
 import { CalendarComponent } from './calendar/calendar.component';
+import { DayDialogComponent } from './calendar/day-dialog/day-dialog.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
     AppComponent,
     WeekdaysComponent,
-    CalendarComponent
+    CalendarComponent,
+    DayDialogComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [
-    DatePipe
+    DatePipe,
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}}
   ],
   bootstrap: [AppComponent]
 })

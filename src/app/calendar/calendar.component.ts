@@ -1,5 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-// import * as EventEmitter from 'events';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { DayDialogComponent } from './day-dialog/day-dialog.component';
 
 const DAY_MS = 60 * 60 * 24 * 1000;
 
@@ -14,17 +15,31 @@ export class CalendarComponent implements OnInit {
   date = new Date();
   @Output() selected = new EventEmitter();
 
-  constructor() {
+  constructor(
+    public dialog: MatDialog
+  ) {
     this.dates = this.getCalendarDays(this.date);
+    
    }
 
   ngOnInit(): void {
+    console.log(this.date)
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(DayDialogComponent);
   }
 
   setMonth(inc) {
     const [year, month] = [this.date.getFullYear(), this.date.getMonth()];
     this.date = new Date(year, month + inc, 1);
     this.dates = this.getCalendarDays(this.date);
+  }
+
+  isToday() {
+    const today = new Date();
+    const dd = String(today.getDate()).padStart(2, '0');
+    return dd;
   }
   
   isSameMonth(date) {
