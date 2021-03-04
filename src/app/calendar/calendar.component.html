@@ -7,7 +7,7 @@
   <li class="days" *ngFor="let day of days"> {{day}} </li>
   <li *ngFor="let date of dates"
     [ngClass]="{grey: !isSameMonth(date)}"
-    (click)="selected.emit(date); openDialog()">
+    (click)="setDate(date); openDialog()">
     {{date | date:'d'}}
   </li>
 </ul>

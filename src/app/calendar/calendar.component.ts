@@ -14,20 +14,34 @@ export class CalendarComponent implements OnInit {
   days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   date = new Date();
   @Output() selected = new EventEmitter();
+  sendValue: string;
+  selectedDate: Date;
 
   constructor(
     public dialog: MatDialog
   ) {
     this.dates = this.getCalendarDays(this.date);
-    
    }
 
   ngOnInit(): void {
-    console.log(this.date)
+    
   }
 
   openDialog() {
-    const dialogRef = this.dialog.open(DayDialogComponent);
+    let dialogRef = this.dialog.open(DayDialogComponent, {
+      data: this.selectedDate
+    })
+
+    dialogRef.afterClosed().subscribe(res => {
+      // received data from dialog-component
+      if (res){
+        console.log(res.data)
+      }
+    })
+  }
+
+  setDate(date) {
+    this.selectedDate = date;
   }
 
   setMonth(inc) {
