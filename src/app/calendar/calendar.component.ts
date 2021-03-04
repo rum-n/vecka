@@ -29,7 +29,8 @@ export class CalendarComponent implements OnInit {
 
   openDialog() {
     let dialogRef = this.dialog.open(DayDialogComponent, {
-      data: this.selectedDate
+      data: this.selectedDate,
+      panelClass: 'custom-modal'
     })
 
     dialogRef.afterClosed().subscribe(res => {

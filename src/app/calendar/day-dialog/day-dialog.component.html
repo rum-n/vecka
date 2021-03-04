@@ -1,3 +1,32 @@
-<h1 [innerHTML]="data | date:'dd.MM.'"></h1>
-<button (click)="cancel()">Cancel</button>
-<button (click)="confirm()">Save</button>
+<h1>{{data | date:'EEEE, dd.MM.'}}</h1>
+<form [formGroup]="dailyTasksForm">
+  <!-- Total value according to invoice -->
+  <mat-form-field>
+    <input
+      matInput
+      formControlName="totalValueAccordingToInvoice"
+      class="totalValueAccordingToInvoice"
+      maxlength="255"
+      placeholder="Task..."
+    />
+    <!-- <mat-error *ngIf="calculatorDataForm.controls['totalValueAccordingToInvoice'].errors?.required">
+      {{ 'errors.RequiredMessage' | translate: { required: 'offer.TotalValue' | translate } }}
+    </mat-error>
+    <mat-error *ngIf="calculatorDataForm.controls['totalValueAccordingToInvoice'].errors?.pattern">
+      {{ 'errors.numberRequired' | translate }}
+    </mat-error>
+    <mat-error *ngIf="calculatorDataForm.controls['totalValueAccordingToInvoice'].errors?.maxCustomValidator">
+      {{ 'errors.maxAmount' | translate }}
+    </mat-error>
+    <mat-error *ngIf="calculatorDataForm.controls['totalValueAccordingToInvoice'].errors?.minCustomValidator">
+      {{
+        'errors.minAmount'
+          | translate: { minAmount: this.calculatorDataForm.value.country === 'Netherlands' ? 5000 : 1000 }
+      }}
+    </mat-error> -->
+  </mat-form-field>
+  <div class="dialog-btns">
+    <button class='cancel-btn' (click)="cancel()">Cancel</button>
+    <button class='confirm-btn' (click)="confirm()">Save</button>
+  </div>
+</form>

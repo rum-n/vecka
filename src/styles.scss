@@ -6,8 +6,16 @@ body {
   padding: 0;
   font-family: $fontFamily;
   overflow: hidden;
-  background: rgb(39, 37, 37);
+  background: $darkBackground;
   color: rgba(255, 255, 255, 0.7);
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.custom-modal {
+  mat-dialog-container {
+      background: $darkBackground;
+      width: 30rem;
+      color: white;
+  }
+}
