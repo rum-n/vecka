@@ -25,8 +25,26 @@ h1 {
 
 .dialog-btns {
     width: 90%;
-    margin: auto;
+    margin: 2rem auto 0 auto;
     display: flex;
     flex-direction: row;
     justify-content: flex-end
+}
+
+.task-wrapper {
+    text-align: center;
+    width: 90%;
+    margin: auto;
+}
+  
+::ng-deep .mat-form-field-underline .mat-form-field-ripple{
+    background-color:white!important;
+}
+  
+::ng-deep .mat-form-field-underline{
+    background-color:white!important;
+}
+
+.mat-form-field {
+    width: 80%;
 }
