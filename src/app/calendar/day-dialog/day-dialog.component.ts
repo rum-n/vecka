@@ -1,7 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, FormArray, ValidatorFn } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Task } from './../../shared/models/task.model';
 
 @Component({
   selector: 'app-day-dialog',
@@ -11,10 +10,10 @@ import { Task } from './../../shared/models/task.model';
 export class DayDialogComponent implements OnInit {
   fromPage: string;
   dailyTasksForm: FormGroup;
-  // arrayItems: {
-  //   id: number;
-  //   content: string;
-  // }[];
+  arrayItems: {
+    id: number;
+    content: string;
+  }[];
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -22,29 +21,13 @@ export class DayDialogComponent implements OnInit {
     private formBuilder: FormBuilder
     ) {
       this.fromPage = data;
-    //   this.dailyTasksForm = this.formBuilder.group({
-    //     tasksArray: this.formBuilder.array([])
-    //  });
-    // this.dailyTasksForm = this.formBuilder.group({
-    //   name: '',
-    //   task: this.formBuilder.array([]) ,
-    // });
+      this.dailyTasksForm = this.formBuilder.group({
+        tasksArray: this.formBuilder.array([])
+     });
      }
 
   ngOnInit(): void {
-    // this.arrayItems = [];
-  }
-  
-  public taskList: Task[] = []; 
-
-  addTask() {
-    this.taskList.push(new Task());
-  }
-
-  removeTask(index: number) {
-    if (index > -1){
-      this.taskList.splice(index, 1);
-    }
+    this.arrayItems = [{id: 1, content: ''}];
   }
 
   cancel() {
@@ -57,17 +40,17 @@ export class DayDialogComponent implements OnInit {
     this.dialogRef.close({ data: 'you confirmed' })
   }
 
-  // get tasksArray() {
-  //   return this.dailyTasksForm.get('tasksArray') as FormArray;
-  // }
+  get tasksArray() {
+    return this.dailyTasksForm.get('tasksArray') as FormArray;
+  }
 
-//  addItem(item) {
-//     this.arrayItems.push(item);
-//     this.tasksArray.push(this.formBuilder.control(false));
-//  }
-//  removeItem() {
-//     this.arrayItems.pop();
-//     this.tasksArray.removeAt(this.tasksArray.length - 1);
-//  }
+ addItem(item) {
+    this.arrayItems.push(item);
+    this.tasksArray.push(this.formBuilder.control(false));
+ }
+ removeItem() {
+    this.arrayItems.pop();
+    this.tasksArray.removeAt(this.tasksArray.length - 1);
+ }
 
 }
