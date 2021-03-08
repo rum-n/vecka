@@ -1,28 +1,28 @@
 <h1>{{data | date:'EEEE, dd.MM.'}}</h1>
-<form [formGroup]="dailyTasksForm">
-  <div class="task-wrapper">
-    <!-- <mat-form-field>
+
+<!-- <button (click)="addTask()">Add</button> -->
+
+<div class="task-wrapper">
+    <mat-form-field>
       <input
         matInput
         maxlength="255"
-      />
-    </mat-form-field> -->
-    <div formArrayName="tasksArray" 
-      *ngFor="let arrayItem of arrayItems; let i=index">
-         
-      <mat-form-field>
-        <input
-          matInput
-          [id]="arrayItem.id"
-          [formControl]="tasksArray[i]"
-          maxlength="255"
+        (keyup.enter)="addTask()"
         />
       </mat-form-field>
-    </div>
+  <div *ngFor="let task of taskList; let i = index">
+    <mat-form-field>
+      <input
+        matInput
+        maxlength="255"
+        [(ngModel)]="task.description"
+        (keyup.enter)="addTask()"
+      />
+    </mat-form-field>
+  </div>
   </div>
 
   <div class="dialog-btns">
     <button class='cancel-btn' (click)="cancel()">Cancel</button>
     <button class='confirm-btn' (click)="confirm()">Save</button>
   </div>
-</form>
