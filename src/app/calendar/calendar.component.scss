@@ -32,5 +32,24 @@ li:hover {
 }
 
 .month-label {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: 400;
+    button {
+        border: none;
+        background: white;
+        cursor: pointer;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        border-radius: 50%;
+        width: 2rem;
+        height: 2rem;
+        padding: 0;
+        img {
+            width: 2rem;
+            height: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+    }
 }
