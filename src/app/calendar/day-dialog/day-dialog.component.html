@@ -1,24 +1,22 @@
 <h1>{{data | date:'EEEE, dd.MM.'}}</h1>
-<form [formGroup]="dailyTasksForm">
   <div class="task-wrapper">
-    <!-- <mat-form-field>
-      <input
-        matInput
-        maxlength="255"
-      />
-    </mat-form-field> -->
-    <div formArrayName="tasksArray" 
-      *ngFor="let arrayItem of arrayItems; let i=index">
-         
-      <mat-form-field>
-        <input
-          matInput
-          [id]="arrayItem.id"
-          [formControl]="tasksArray[i]"
-          maxlength="255"
-          (keydown.enter)="addItem()"
-        />
-      </mat-form-field>
+    <mat-form-field>
+      <input 
+        matInput 
+        maxlength="255" 
+        [(ngModel)]="newTask" 
+        type="text" 
+        value="" 
+        (keydown.enter)="addToList()"
+      /> 
+    </mat-form-field>
+    
+    <div *ngFor="let x of items; let index = index;">
+      <div class='single-task'>
+        {{x}}
+        <!-- <input (click)="deleteTask(index)" type="button" value="Delete">  -->
+        <img class='remove-task' (click)="deleteTask(index)" src='../../../assets/img/clear.svg' alt='Remove'/>
+      </div> 
     </div>
   </div>
 
@@ -26,4 +24,3 @@
     <button type="button" class='cancel-btn' (click)="cancel()">Cancel</button>
     <button type="button" class='confirm-btn' (click)="confirm()">Save</button>
   </div>
-</form>

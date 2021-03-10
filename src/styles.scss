@@ -22,3 +22,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     color:white;
   }
 }
+
+::ng-deep .mat-form-field-underline .mat-form-field-ripple{
+  background-color:#d8d8d8!important;
+}
+
+::ng-deep .mat-form-field-underline{
+  background-color:#d8d8d8!important;
+}

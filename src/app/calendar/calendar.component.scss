@@ -17,6 +17,7 @@ li {
   height: 4rem;
   text-align: center;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 li.days {
@@ -29,6 +30,7 @@ li.grey {
 
 li:hover {
     background-color: $darkPurple;
+    transition: 0.3s;
 }
 
 .month-label {

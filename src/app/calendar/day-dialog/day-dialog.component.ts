@@ -9,48 +9,37 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class DayDialogComponent implements OnInit {
   fromPage: string;
-  dailyTasksForm: FormGroup;
-  arrayItems: {
-    id: number;
-    content: string;
-  }[];
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<DayDialogComponent>,
-    private formBuilder: FormBuilder
     ) {
       this.fromPage = data;
-      this.dailyTasksForm = this.formBuilder.group({
-        tasksArray: this.formBuilder.array([])
-     });
      }
 
   ngOnInit(): void {
-    this.arrayItems = [{id: 1, content: ''}];
+    
   }
 
-  cancel() {
-    // closing itself and sending data to parent component
+  public items = []; 
+  public newTask; 
+  public addToList() { 
+      if (this.newTask == '') { 
+      } 
+      else { 
+          this.items.push(this.newTask); 
+          this.newTask = ''; 
+      } 
+  } 
+  public deleteTask(index) { 
+      this.items.splice(index, 1); 
+  } 
+
+  public cancel() {
     this.dialogRef.close({ data: 'you cancelled' })
   }
 
-  confirm() {
-    // closing itself and sending data to parent component
+  public confirm() {
     this.dialogRef.close({ data: 'you confirmed' })
   }
-
-  get tasksArray() {
-    return this.dailyTasksForm.get('tasksArray') as FormArray;
-  }
-
- addItem(item) {
-    this.arrayItems.push(item);
-    this.tasksArray.push(this.formBuilder.control(false));
- }
- removeItem() {
-    this.arrayItems.pop();
-    this.tasksArray.removeAt(this.tasksArray.length - 1);
- }
-
 }
