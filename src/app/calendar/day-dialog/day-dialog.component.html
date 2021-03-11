@@ -13,9 +13,11 @@
     
     <div *ngFor="let x of items; let index = index;">
       <div class='single-task'>
-        {{x}}
-        <!-- <input (click)="deleteTask(index)" type="button" value="Delete">  -->
-        <img class='remove-task' (click)="deleteTask(index)" src='../../../assets/img/clear.svg' alt='Remove'/>
+        <span [ngClass]='completed ? "strikethrough" : ""'>{{x}}</span>
+        <div>
+          <img class='done-task' (click)="completeTask(index)" src='../../../assets/img/done.svg' alt='Done'/>
+          <img class='remove-task' (click)="deleteTask(index)" src='../../../assets/img/clear.svg' alt='Remove'/>
+        </div>
       </div> 
     </div>
   </div>

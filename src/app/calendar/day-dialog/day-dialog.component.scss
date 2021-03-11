@@ -49,11 +49,26 @@ h1 {
     width: 80%;
 }
 
-// .remove-task {
-//     background: red;
-// }
+.remove-task {
+    background: #ffffff;
+}
 
-.remove-task:hover {
+.done-task {
+    background: #ffffff;
+}
+
+.strikethrough {
+    text-decoration: line-through;
+}
+
+.remove-task,
+.done-task {
+    border-radius: 50%;
+    border: none;
+}
+
+.remove-task:hover,
+.done-task:hover {
     cursor: pointer;
 }
 
